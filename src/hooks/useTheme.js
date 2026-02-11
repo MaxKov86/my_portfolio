@@ -11,14 +11,12 @@ export function useTheme() {
 
   useEffect(() => {
     const root = document.documentElement;
-
     if (isDark) {
       root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
     } else {
       root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
     }
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   }, [isDark]);
 
   const toggleTheme = () => setIsDark(!isDark);
